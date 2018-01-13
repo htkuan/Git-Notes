@@ -29,11 +29,11 @@ working tree <-> staging area <-> .git directory
 
 # help
 
-git help <command>
+git help \<command>
 
-man git-<command>
+man git-\<command>
 
-git <command> -h
+git \<command> -h
 
 # Setup and Config(會更改或讀取 .gitconfig)
 
