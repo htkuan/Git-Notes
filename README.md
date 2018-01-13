@@ -129,10 +129,6 @@ git reset --hard HEAD (不管有沒有add,到上一個commit的版本,若無修�
 		 
 git reset --hard (給定版本id號碼 or id對應HEAD@{X},則直接回到此id版本)
 
-## git mv
-
-## git clean
-
 # Branching and Merging
 
 ## git branch
@@ -160,8 +156,6 @@ git merge --no-ff -m "keep merge info" dev (--no--ff -m "info" : 保留commit訊
 
 merge分支衝突(如果新分支修改檔案,原本分支檔案也修改,然後在原本分支要合併會有分支衝突,
               此時打開合併衝突的檔案,會有衝突標示,手動改好之後在add跟commit即可)
-
-## git mergetool
 
 ## git log
 
@@ -201,29 +195,11 @@ git stash pop (返回)
 
 git remote add remotename url(加遠端repo地址,clone下來的那包,remote預設叫origin)
 
-## git archive
-
-## git submodule
-
 # Inspection and Comparison
 
 ## git show
 
-## git shortlog
-
-## git describe
-
-# Debugging
-
-## git bisect
-
-## git blame
-
-## git grep
-
 # Patching
-
-## git cherry-pick
 
 ## git rebase (會更動歷史,所以只能在自己的分支使用,從某個點的commit條拔起來,插到某個commit上的概念)
 
@@ -240,35 +216,3 @@ git rebase --continue(完成合併修改,rebase會把爬起來的commit條,一�
 git rebase onto
 
 git rebase -i (互動模式)
-
-## git revert
-
-# Email
-
-## git apply
-
-## git am
-
-## git format-patch
-
-## git imap-send
-
-## git send-email
-
-## git request-pull
-
-# External Systems
-
-## git svn
-
-## git fast-import
-
-# Administration
-
-## git gc
-
-## git fsck
-
-## git reflog
-
-## git filter-branch
