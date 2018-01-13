@@ -1,6 +1,7 @@
 # Git_Note
 note some git usage 
 
+介紹常用git指令與概念
 ## Git: The three states that your files can reside in
 
 1. Committed: means that the data is safely stored in your local database.
@@ -23,9 +24,7 @@ working tree <-> staging area <-> .git directory
 1.在working tree中修改檔案
 2.把想要加入下一個commit的檔案add進staging area
 3.提交commit,然後Git會把staging area的資料存進資料庫
-```
-
-常用指令 help, config, init, clone, 
+``` 
 
 # help
 
@@ -104,8 +103,6 @@ git diff A B (從 A branch commit 到 B branch commit 的不同)
 git diff --cached (查看在add內(staged)但是未commit的和上一個commit版本的不同)
 
 git diff HEAD (一起查看上面兩者)
-
-## git difftool
 
 ## git commit
 
