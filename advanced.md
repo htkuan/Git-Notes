@@ -4,6 +4,8 @@
 
 ## git difftool
 
+## git rm
+
 ## git mv
 
 ## git clean

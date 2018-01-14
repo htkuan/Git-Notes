@@ -58,9 +58,22 @@ ex. git config --global alias.st status
 
 # Getting and Creating Projects
 
-## git init
+## git init 
+usage: git init
+
+This creates a new subdirectory named .git that contains all of your necessary repository files 
+
+— a Git repository skeleton.
 
 ## git clone
+usage: git clone \<url> <repo_name>
+
+ex.
+
+```
+$ git clone https://github.com/username/repo_name  //直接複製repo下來
+$ git clone https://github.com/username/repo_name local_repo_name //複製repo並改名成指定名稱
+```
 
 # Basic Snapshotting
 
@@ -85,20 +98,47 @@ Untrack(unstaged) <-> Unmodified <-> modified(unstaged) <-> Staged
 最後進入基本工作流程3,提交commit! 這時會把在Staged的檔案存進資料庫,
 也就成為了新的commit(版本),而在這時候這些檔案的狀態就會回到"Unmodified"
 
+## .gitignore (Ignoring Files)
+如果有不想被Git記錄進版本控制的檔案,可以利用編輯 .gitignore放在同 .git資料夾階層。
+
+ex.
+
+```
+# ignore all .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in the build/ directory
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+```
 ## git add (把unstaged的檔案加進staging area)
 usage: git add <filename>
 
-git add . (把全部unstaged的檔案都add成staged)
-
-git add hello.py 
-
-git add -p filename(patch 一段一段檢視要add的code, 可以部分add)
+ex.
+```
+$ git add .  //把全部unstaged的檔案都add成staged
+$ git add hello.py  //把hello.py加成staged
+$ git add -p filename  //patch 一段一段檢視要add的code, 可以部分add
+```
 
 ## git diff
 
 git diff (查看修改部分和上一個commit版本的不同)
 
 git diff A B (從 A branch commit 到 B branch commit 的不同)
+
+git diff --staged
 
 git diff --cached (查看在add內(staged)但是未commit的和上一個commit版本的不同)
 
