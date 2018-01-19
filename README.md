@@ -223,10 +223,25 @@ git stash pop (返回)
 # Sharing and Updating Projects
 
 ## git fetch
+usage: git fetch \<remote_name> \<branch>
+
+ex. git fetch upstream develop
 
 ## git pull
+usage: git pull \<remote_name> \<branch>
+```
+$ git pull <remote_name> <branch>
+same as
+$ git fetch <remote_name> <branch>
+            +
+$ git merge <remote_name> <branch>
+```
+ex. git pull upstream develop
 
 ## git push
+usage: git push \<remote_name> \<branch>
+
+ex. git push origin master
 
 ## git remote
 
