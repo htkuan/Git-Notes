@@ -166,6 +166,8 @@ git reset --hard HEAD (不管有沒有add,到上一個commit的版本,若無修�
 		 
 git reset --hard (給定版本id號碼 or id對應HEAD@{X},則直接回到此id版本)
 
+git reset --hard ORIG_HEAD (還原到reset前的狀態)
+
 # Branching and Merging
 
 ## git branch
@@ -193,6 +195,11 @@ git merge --no-ff -m "keep merge info" dev (--no--ff -m "info" : 保留commit訊
 
 merge分支衝突(如果新分支修改檔案,原本分支檔案也修改,然後在原本分支要合併會有分支衝突,
               此時打開合併衝突的檔案,會有衝突標示,手動改好之後在add跟commit即可)
+              
+ps. 一般來說merge如果有衝突,解完衝突需要commit,所以會再merge後多出新的commit,
+    若沒有衝突則是 fast-forward 則主branch的最後一個commit會重疊merge進來的branch的
+    最後一個commit, 下 --no--ff 是讓merge不要是fast-forward,所以會在兩個branch merge時,
+    多出一個 merge commit!
 
 ## git log
 
@@ -255,7 +262,9 @@ git remote add remotename url(加遠端repo地址,clone下來的那包,remote預
 
 ## git rebase (會更動歷史,所以只能在自己的分支使用,從某個點的commit條拔起來,插到某個commit上的概念)
 
-git rebase dev(在HEAD所指的分支(假設是master),把dev分支合併過來)
+git rebase dev(在HEAD所指的分支(假設是master),把dev分支合併過來, rebase會尋找兩branch的交叉點,
+               然後把交叉點到HEAD的commit條拔起來,一個一個commit到dev最新的commit上,
+               成為master的最新commit條, 好處就是當master要merge進去dev時會是 fast-forward)
 
 分支衝突:修改衝突檔案後使用git branch檢查所在分支,
          會發現所在分支停在(no branch,rebasing master),
@@ -267,4 +276,5 @@ git rebase --continue(完成合併修改,rebase會把爬起來的commit條,一�
 
 git rebase onto
 
-git rebase -i (互動模式)
+git rebase -i HEAD~~~~~~(互動模式, 幾個~ 就回朔幾個commit, 並且可以任意改動這些commit)
+
