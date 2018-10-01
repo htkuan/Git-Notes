@@ -278,6 +278,10 @@ git stash save -u <message> 指令，就可自訂暫存版的註解：
 
 可以在加上 -m 'message' 給標示標籤訊息
 
+delete remote tag: 
+1. git tag -d <tag_name> ps.delete local
+2. git push remote :refs/tags/<tag_name>
+
 # Sharing and Updating Projects
 
 ## git fetch
